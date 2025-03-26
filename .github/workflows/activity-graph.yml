@@ -1,0 +1,20 @@
+name: Generate Activity Graph
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Ashutosh00710/github-readme-activity-graph@main
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BG_COLOR: "000000"
+          COLOR: "ffffff"
+          AREA_COLOR: "ff69b4"
+          POINT_COLOR: "ffffff"
+          CUSTOM_TITLE: "My GitHub Activity Graph"
