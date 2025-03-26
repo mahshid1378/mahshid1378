@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate GitHub Stats
-        uses: anuraghazra/github-readme-stats@v2
+        uses: anuraghazra/github-readme-stats@v1
         with:
           username: mahshid1378
           include_all_commits: true
@@ -24,7 +24,7 @@ jobs:
           theme: radical
 
       - name: Generate Most Used Languages
-        uses: anuraghazra/github-readme-stats@v2
+        uses: anuraghazra/github-readme-stats@v1
         with:
           username: mahshid1378
           show_icons: true
@@ -32,9 +32,11 @@ jobs:
           theme: radical
 
       - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add .
           git commit -m "Updated README with latest metrics" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
