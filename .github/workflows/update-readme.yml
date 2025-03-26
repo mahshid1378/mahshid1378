@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update README with Activity Graph
-        uses: Ashutosh00710/github-readme-activity-graph@v1.2.0
+        uses: Ashutosh00710/github-readme-activity-graph@v2.0.0 
         with:
           COMMIT_MESSAGE: "Updated activity graph"
           BG_COLOR: "#ffffff"
