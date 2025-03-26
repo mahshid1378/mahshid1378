@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Ashutosh00710/github-readme-activity-graph@main
+      ##- uses: Ashutosh00710/github-readme-activity-graph@main
+      - uses: Ashutosh00710/github-readme-activity-graph@v1.2.0
         with:
           USERNAME: ${{ github.repository_owner }}
           BG_COLOR: "000000"
