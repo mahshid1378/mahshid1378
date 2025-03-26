@@ -1,1 +1,5 @@
-![GitHub Activity Graph](https://github-activity-graph.vercel.app/graph?username=mahshid1378&bg_color=000000&color=ffffff&area_color=ff69b4&point_color=ffffff)
+## 📊 GitHub Stats
+![My GitHub Stats](https://github-readme-stats.vercel.app/api?username=mahshid1378&show_icons=true&theme=radical)
+
+## 🔥 زبان‌های پرکاربرد من (نمودار دایره‌ای)
+<img src="https://github.com/mahshid1378/mahshid1378/blob/main/metrics.svg" alt="Most Used Languages Pie Chart" />
