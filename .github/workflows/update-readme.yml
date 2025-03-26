@@ -1,0 +1,20 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:  
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update README with Activity Graph
+        uses: Ashutosh00710/github-readme-activity-graph@v1.2.0
+        with:
+          COMMIT_MESSAGE: "Updated activity graph"
+          BG_COLOR: "#ffffff"
+          COLOR: "#000000"
