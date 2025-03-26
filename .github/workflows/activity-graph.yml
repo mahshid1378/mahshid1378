@@ -2,21 +2,24 @@ name: Generate Activity Graph
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily
+    - cron: "0 0 * * *"  # اجرا هر روز در نیمه‌شب UTC
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  generate-graph:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Update README with Activity Graph
-        ##uses: Ashutosh00710/github-readme-activity-graph@main  # 🔥 نسخه تغییر کرد
-        uses: anuraghazra/github-readme-stats@v2
+
+      - name: Generate GitHub Activity Graph
+        uses: Ashutosh00710/github-readme-activity-graph@main
         with:
-          USERNAME: ${{ github.repository_owner }}
-          BG_COLOR: "000000"
-          COLOR: "ffffff"
-          AREA_COLOR: "ff69b4"
-          POINT_COLOR: "ffffff"
-          CUSTOM_TITLE: "My GitHub Activity Graph"
+          username: mahshid1378
+          theme: github-dark  # یا github-light برای تم روشن
+          hide_border: true
+          area: true
+          custom_title: "My GitHub Activity Graph"
+          bg_color: 0D1117
+          color: F8D866
+          line: 58A6FF
+          point: F8D866

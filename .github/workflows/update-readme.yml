@@ -2,20 +2,35 @@ name: Update README
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:  
+    - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Update README with Activity Graph
-        ##uses: Ashutosh00710/github-readme-activity-graph@main  # 🔥 اینجا هم نسخه را تغییر بده
-        uses: anuraghazra/github-readme-stats@v2
+      - name: Generate GitHub stats
+        uses: anuraghazra/github-readme-stats@master
         with:
-          COMMIT_MESSAGE: "Updated activity graph"
-          BG_COLOR: "#ffffff"
-          COLOR: "#000000"
+          username: mahshid1378
+          show_icons: true
+          theme: radical
+          include_all_commits: true
+          count_private: true
+          hide_border: true
+          
+      - name: Generate GitHub metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: "repositories"
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_indepth: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_ignored: "html, css"
+          plugin_languages_details: "percentage"
+          plugin_languages_pie: yes 
