@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Update README with Activity Graph
-        uses: Ashutosh00710/github-readme-activity-graph@main  # 🔥 نسخه تغییر کرد
+        ##uses: Ashutosh00710/github-readme-activity-graph@main  # 🔥 نسخه تغییر کرد
+        uses: anuraghazra/github-readme-stats@v2
         with:
           USERNAME: ${{ github.repository_owner }}
           BG_COLOR: "000000"
