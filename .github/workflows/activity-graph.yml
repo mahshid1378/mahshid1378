@@ -1,25 +1,29 @@
-name: Generate Activity Graph
+name: Generate GitHub Activity Graph
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # اجرا هر روز در نیمه‌شب UTC
+    - cron: "0 */12 * * *"
   workflow_dispatch:
 
 jobs:
   generate-graph:
+    name: Generate Activity Graph
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Generate GitHub Activity Graph
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Activity Graph
         uses: Ashutosh00710/github-readme-activity-graph@main
         with:
           username: mahshid1378
-          theme: github-dark  # یا github-light برای تم روشن
-          hide_border: true
-          area: true
-          custom_title: "My GitHub Activity Graph"
-          bg_color: 0D1117
-          color: F8D866
-          line: 58A6FF
-          point: F8D866
+          theme: github
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Updated Activity Graph" || echo "No changes to commit"
+          git push
