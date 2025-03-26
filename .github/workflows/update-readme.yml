@@ -1,0 +1,40 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    name: Update Readme with Metrics
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate GitHub Stats
+        uses: anuraghazra/github-readme-stats@v2
+        with:
+          username: mahshid1378
+          include_all_commits: true
+          count_private: true
+          show_icons: true
+          theme: radical
+
+      - name: Generate Most Used Languages
+        uses: anuraghazra/github-readme-stats@v2
+        with:
+          username: mahshid1378
+          show_icons: true
+          layout: compact
+          theme: radical
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Updated README with latest metrics" || echo "No changes to commit"
+          git push
