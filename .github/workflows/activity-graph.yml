@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Ashutosh00710/github-readme-activity-graph@v2.0.0
-      ##- uses: Ashutosh00710/github-readme-activity-graph@main
+      - name: Update README with Activity Graph
+        uses: Ashutosh00710/github-readme-activity-graph@main  # 🔥 نسخه تغییر کرد
         with:
           USERNAME: ${{ github.repository_owner }}
           BG_COLOR: "000000"
